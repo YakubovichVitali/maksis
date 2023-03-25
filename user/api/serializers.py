@@ -30,3 +30,13 @@ class ReferralUserListSerializer(serializers.ModelSerializer):
             'ref_level',
             'children',
         )
+
+
+class ReferralUserDetailSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MaksisUser
+        fields = (
+            'ref_id',
+            'ref_level',
+        )
