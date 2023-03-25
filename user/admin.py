@@ -1,3 +1,12 @@
 from django.contrib import admin
 
-# Register your models here.
+from user.models import MaksisUser
+
+
+@admin.register(MaksisUser)
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'ref_id',
+        'ref_level',
+    )
