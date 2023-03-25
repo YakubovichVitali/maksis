@@ -4,7 +4,7 @@ from user.models import MaksisUser
 
 
 @admin.register(MaksisUser)
-class EmployeeAdmin(admin.ModelAdmin):
+class MaksisUserAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'ref_id',

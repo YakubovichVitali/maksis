@@ -18,7 +18,10 @@ class MaksisUser(MPTTModel):
         max_length=127,
         verbose_name='Referral id',
     )
-    ref_level = models.PositiveSmallIntegerField()
+    ref_level = models.PositiveSmallIntegerField(
+        default=1,
+        verbose_name='Referral level',
+    )
     money_earned = models.DecimalField(
         verbose_name='Money earned',
         decimal_places=2,
