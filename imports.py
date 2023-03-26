@@ -10,7 +10,7 @@ from user.models import MaksisUser
 class ImportReferralUsers:
 
     def execute(self) -> None:
-        with open('/home/vitali/PycharmProjects/maksis/data.json') as file_data:
+        with open('data.json') as file_data:
             data = json.load(file_data)
 
         self._delete_ref_users()
