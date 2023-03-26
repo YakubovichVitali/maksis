@@ -1,7 +1,7 @@
 --------------------------------WITH DOCKER----------------------------------
 
-    docker-compose build
-    dokcer-compose up
+    docker compose build
+    docker compose up
     docker ps
     docker exec -it <container_name> python manage.py makemigrations
     docker exec -it <container_name> python manage.py migrate
