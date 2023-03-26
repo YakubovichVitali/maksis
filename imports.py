@@ -1,3 +1,11 @@
+import os
+import django
+
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'maksis.settings')
+django.setup()
+
+
 import json
 from typing import (
     List,
@@ -15,7 +23,7 @@ class ImportReferralUsers:
 
         self._delete_ref_users()
 
-        print('Start creating referral users ...')
+        print('Start creating referral users ..')
 
         ref_user = self._create_ref_user(
             ref_id=data['id'],
@@ -63,4 +71,6 @@ class ImportReferralUsers:
         ref_users.delete()
 
 
-import_referral_users = ImportReferralUsers()
+if __name__ == "__main__":
+    import_referral_users = ImportReferralUsers()
+    import_referral_users.execute()

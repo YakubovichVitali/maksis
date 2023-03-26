@@ -1,0 +1,29 @@
+version: '3.10'
+
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data'
+    environment:
+      - POSTGRES_DB=maksis
+      - POSTGRES_USER=vitali
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5434:5432"
+    restart: always
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - .:/code
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  pgdata:

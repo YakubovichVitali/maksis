@@ -1,3 +1,11 @@
+import os
+import django
+
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'maksis.settings')
+django.setup()
+
+
 from decimal import Decimal
 from typing import Optional
 
@@ -53,6 +61,8 @@ class RemunerationEnrollment:
     }
 
     def execute(self):
+        print('Start remuneration encrollment ..')
+
         ref_users = MaksisUser.objects.all()
         ref_users.update(
             replenishment=Decimal('120'),
@@ -68,6 +78,8 @@ class RemunerationEnrollment:
                 ref_user=ref_user,
                 ref_level=ref_user.ref_level,
             )
+
+        print('Finished remuneration encrollment')
 
     def _update_remuneration(
             self,
@@ -91,4 +103,6 @@ class RemunerationEnrollment:
             )
 
 
-remuneration_enrollment = RemunerationEnrollment()
+if __name__ == "__main__":
+    remuneration_enrollment = RemunerationEnrollment()
+    remuneration_enrollment.execute()
