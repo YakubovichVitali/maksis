@@ -9,4 +9,5 @@ class MaksisUserAdmin(admin.ModelAdmin):
         'id',
         'ref_id',
         'ref_level',
+        'remuneration',
     )
