@@ -13,6 +13,10 @@ class ImportReferralUsers:
         with open('/home/vitali/PycharmProjects/maksis/data.json') as file_data:
             data = json.load(file_data)
 
+        self._delete_ref_users()
+
+        print('Start creating referral users ...')
+
         ref_user = self._create_ref_user(
             ref_id=data['id'],
         )
@@ -21,6 +25,8 @@ class ImportReferralUsers:
             parent_id=ref_user.pk,
             refs=data['refs'],
         )
+
+        print('Referral user creation complete')
 
     def _execute(
             self,
@@ -51,6 +57,10 @@ class ImportReferralUsers:
             ref_level=ref_level,
             parent_id=parent_id,
         )
+
+    def _delete_ref_users(self) -> None:
+        ref_users = MaksisUser.objects.all()
+        ref_users.delete()
 
 
 import_referral_users = ImportReferralUsers()

@@ -22,13 +22,17 @@ class MaksisUser(MPTTModel):
         default=1,
         verbose_name='Referral level',
     )
-    money_earned = models.DecimalField(
-        verbose_name='Money earned',
+    replenishment = models.DecimalField(
+        default=Decimal('0'),
         decimal_places=2,
         max_digits=8,
         validators=[MinValueValidator(Decimal('0'))],
-        null=True,
-        blank=True,
+    )
+    remuneration = models.DecimalField(
+        default=Decimal('0'),
+        decimal_places=2,
+        max_digits=8,
+        validators=[MinValueValidator(Decimal('0'))],
     )
     parent = TreeForeignKey(
         'self',
@@ -38,7 +42,6 @@ class MaksisUser(MPTTModel):
         related_name='children',
         verbose_name='Parent',
     )
-    owner = models.ManyToManyField(User, related_name='owner', blank=True)
 
     def __str__(self):
         return f'MaksisUser[{self.pk}] level {self.ref_level}'
