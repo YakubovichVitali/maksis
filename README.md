@@ -8,7 +8,7 @@
     docker exec -it <container_name> python manage.py createsuperuser
 
     docker exec -it <container_name> python imports.py
-    docker exec -it maksis-web-1 python remuneration_enrollment.py
+    docker exec -it <container_name> python remuneration_enrollment.py
 
 
 -------------------------------USEFUL LINKS----------------------------------
