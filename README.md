@@ -13,5 +13,5 @@
 
 -------------------------------USEFUL LINKS----------------------------------
 
-    http://127.0.0.1:8000/admin/user/maksisuser/
-    http://127.0.0.1:8000/api/ref_users/
+    http://127.0.0.1:8001/admin/user/maksisuser/
+    http://127.0.0.1:8001/api/ref_users/
